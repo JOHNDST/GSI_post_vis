@@ -89,16 +89,17 @@ function App() {
 
   const loadDemoData = async () => {
     setLoading(true);
+    const baseUrl = import.meta.env.BASE_URL;
     try {
       const [resData, mapData, boundsData] = await Promise.all([
-        fetch('/results.json').then(r => r.json()),
-        fetch('/base_geometry.geojson').then(r => r.json()),
-        fetch('/bounds.json').then(r => r.json())
+        fetch(`${baseUrl}results.json`).then(r => r.json()),
+        fetch(`${baseUrl}base_geometry.geojson`).then(r => r.json()),
+        fetch(`${baseUrl}bounds.json`).then(r => r.json())
       ]);
       setData(resData);
       setGeoData(mapData);
       setBgBounds(boundsData.bounds);
-      setBgImage('/background.png');
+      setBgImage(`${baseUrl}background.png`);
     } catch (err) {
       console.error("Error loading demo data:", err);
       alert("Failed to load demo data. Make sure python script ran successfully.");
@@ -176,13 +177,13 @@ function App() {
           </div>
 
           <div className="mt-8 flex items-center justify-between border-t border-gray-200 pt-6">
-            <span className="text-sm text-gray-500 italic">Don't have the files?</span>
+            <span className="text-sm text-gray-500 italic">Want to see how it works?</span>
             <button 
               onClick={loadDemoData}
               disabled={loading}
               className="bg-gray-800 text-white px-6 py-2 rounded-lg font-bold hover:bg-black transition-colors flex items-center gap-2 cursor-pointer"
             >
-              {loading ? 'Loading...' : 'Load Local Demo Data'}
+              {loading ? 'Loading...' : 'Load Example Data'}
             </button>
           </div>
         </div>
