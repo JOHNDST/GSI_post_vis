@@ -1,0 +1,34 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'PixelOperator';
+  src: url('/fonts/PixelOperator-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'PixelOperatorSC';
+  src: url('/fonts/PixelOperatorSC.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'PixelOperatorSC';
+  src: url('/fonts/PixelOperatorSC-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'PixelOperatorSC', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: 'PixelOperator', sans-serif;
+}
